@@ -59,4 +59,5 @@ dependencies {
     implementation project(':lib_common')
 
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouter_compiler"
+
 }
