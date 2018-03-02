@@ -1,10 +1,9 @@
 package app.qimi.cn.module_video.mvp.presenter;
 
+import android.content.Context;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import app.qimi.cn.lib_common.myapplication.BaseApplication;
 import app.qimi.cn.module_video.mvp.bean.VideoBean;
@@ -20,12 +19,14 @@ import app.qimi.cn.module_video.mvp.view.IVideoActivityView;
 
 public class VideoPresenter {
 
+    private Context mContext;
     private IVideoBeanBiz beanBiz;
     private IVideoActivityView rootView;
     private VideoBean data;
     private ArrayAdapter<String> adapter;
 
-    public VideoPresenter(IVideoActivityView videoView) {
+    public VideoPresenter(Context context, IVideoActivityView videoView) {
+        this.mContext = context;
         this.beanBiz = new VideoBeanBiz();
         this.rootView = videoView;
     }
@@ -50,14 +51,10 @@ public class VideoPresenter {
 
     public void initAdapter() {
 
-        List<String> list = new ArrayList();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
+        String []data ={"hi","nihao","yes","no"};
+        TextView tv = new TextView(BaseApplication.getInstance());
 
-        adapter = new ArrayAdapter<>(BaseApplication.getInstance(),android.R.layout.simple_expandable_list_item_1,list);
+        adapter = new  ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, data);
         rootView.setAdapter(adapter);
 
 

@@ -29,12 +29,13 @@ public class UserLoginPresenter {
             @Override
             public void loginSuccess() {
                 Toast.makeText(BaseApplication.getInstance(), "login scuess", Toast.LENGTH_SHORT).show();
-
+                userLoginView.toMainActivity();
             }
 
             @Override
             public void loginFailed() {
                 Toast.makeText(BaseApplication.getInstance(), "login failed", Toast.LENGTH_SHORT).show();
+                userLoginView.showFailedError();
 
             }
         });

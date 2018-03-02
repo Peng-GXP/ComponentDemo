@@ -16,7 +16,7 @@ public class VideoActivity extends Activity implements IVideoActivityView {
 
     private ListView listview;
 
-    private VideoPresenter presenter = new VideoPresenter(this);
+    private VideoPresenter presenter = new VideoPresenter(VideoActivity.this, this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
