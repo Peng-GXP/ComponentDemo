@@ -25,6 +25,7 @@ public class VideoPresenter {
     private VideoBean data;
     private ArrayAdapter<String> adapter;
 
+
     public VideoPresenter(Context context, IVideoActivityView videoView) {
         this.mContext = context;
         this.beanBiz = new VideoBeanBiz();
@@ -55,6 +56,7 @@ public class VideoPresenter {
         TextView tv = new TextView(BaseApplication.getInstance());
 
         adapter = new  ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, data);
+
         rootView.setAdapter(adapter);
 
 

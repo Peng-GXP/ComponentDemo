@@ -40,7 +40,9 @@ public class VideoActivity extends Activity implements IVideoActivityView {
 
     @Override
     public void setAdapter(ArrayAdapter<String> adapter) {
+
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
+
 }

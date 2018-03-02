@@ -2,6 +2,8 @@ package app.qimi.cn.module_userinfo.presenter;
 
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
 import app.qimi.cn.lib_common.myapplication.BaseApplication;
 import app.qimi.cn.module_userinfo.biz.IUserBiz;
 import app.qimi.cn.module_userinfo.biz.OnLoginListener;
@@ -18,6 +20,7 @@ public class UserLoginPresenter {
     private IUserBiz userBiz;
     private IUserLoginView userLoginView;
 
+    @Inject
     public UserLoginPresenter(IUserLoginView userLoginView) {
         this.userLoginView = userLoginView;
         this.userBiz = new UserBiz();

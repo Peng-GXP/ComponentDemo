@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import javax.inject.Inject;
+
+import app.qimi.cn.module_userinfo.presenter.DaggerLoginComponent;
+import app.qimi.cn.module_userinfo.presenter.LoginModule;
 import app.qimi.cn.module_userinfo.presenter.UserLoginPresenter;
 import app.qimi.cn.module_userinfo.view.IUserLoginView;
 
@@ -20,12 +24,19 @@ public class LoginActivity extends Activity implements IUserLoginView {
     private Button mBtnLogin, mBtnClear;
     private ProgressBar mPbLoading;
 
-    private UserLoginPresenter mUserLoginPresenter = new UserLoginPresenter(this);
+    @Inject
+    UserLoginPresenter mUserLoginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        DaggerLoginComponent.builder()
+                .loginModule(new LoginModule(this))
+                .build()
+                .inject(this);
+
         initViews();
     }
 

@@ -52,7 +52,9 @@ dependencies {
     compile "com.alibaba:arouter-api:$rootProject.arouter"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouter_compiler"
     compile "com.github.vondear:RxTools:$rootProject.rxtools"
-
+    //dagger
+    compile "com.google.dagger:dagger:$rootProject.dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger"
 
 }
 
